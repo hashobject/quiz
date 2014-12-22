@@ -1,5 +1,5 @@
 var sys=require('sys');
-    
+
 function QuizServer(statModule)
 {
     this.statModule;
@@ -21,7 +21,7 @@ QuizServer.prototype.sendCurrentQuestion=function(socket)
         {
             socket.send(botMessage(question.question,false));
         }
-    });    
+    });
 }
 QuizServer.prototype.sendNextQuestion=function(socket)
 {
@@ -72,7 +72,7 @@ sendAll=function(text,socket,isQuestion)
 {
     var message=botMessage(text,isQuestion);
     socket.broadcast(message);
-    socket.send(message);            
+    socket.send(message);
 }
 botMessage=function(text,isQuestion)
 {
@@ -80,7 +80,7 @@ botMessage=function(text,isQuestion)
    if(isQuestion)
    {
        message={message:text,user:'робот',isQuestion:true};
-   } 
+   }
    else
    {
        message={message:text,user:'робот'}

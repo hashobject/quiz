@@ -14,7 +14,7 @@ app.configure(function()
     //setting folder to the views
     app.set('views', __dirname + '/views');
     //setting public folder
-    app.use(express.staticProvider(__dirname + '/public'));    
+    app.use(express.staticProvider(__dirname + '/public'));
     //using router for REST-like requests
     app.use(app.router);
     //for decoding params
@@ -66,9 +66,9 @@ app.get('/statistic/:id',function(req,res)
         res.send(statistic);
     });
 });
-   
+
 app.listen(8080);
-var socket=io.listen(app); 
+var socket=io.listen(app);
 socket.on('connection', function(client)
 {
     //send to the user current question

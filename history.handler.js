@@ -11,7 +11,7 @@ exports.updateRun=function(userName)
         user=userName;
         run=1;
     }
-}    
+}
 exports.getRun=function(userName)
 {
     if(user!=userName)
@@ -19,13 +19,13 @@ exports.getRun=function(userName)
         return 1;
     }
     return run;
-} 
+}
 exports.getPoints=function(userName)
 {
-    return exports.getRun(userName)*exports.getRun(userName); 
+    return exports.getRun(userName)*exports.getRun(userName);
 }
 exports.reset=function()
 {
     user='';
-    run=1;    
+    run=1;
 }

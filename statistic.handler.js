@@ -19,15 +19,15 @@ exports.getStat=function(userId,callback)
             callback(doc);
         }
     });
-}    
+}
 exports.updateStat=function(userId,run,points,socket,userDisplayName)
 {
     db.getDoc(userId, function(er, doc)
     {
-        if (er) 
+        if (er)
         {
             var stat={answers:1,points:1,seria:1,loginDate:new Date(),userDisplayName:userDisplayName};
-            db.saveDoc(userId,stat, function(er, ok) 
+            db.saveDoc(userId,stat, function(er, ok)
             {
                 if (er)
                 {
@@ -51,7 +51,7 @@ exports.updateStat=function(userId,run,points,socket,userDisplayName)
         {
             var seria=doc.seria>run?doc.seria:run;
             var stat={answers:doc.answers+1,_rev:doc._rev,points:doc.points+points,seria:seria,userDisplayName:userDisplayName};
-            db.saveDoc(userId,stat, function(er, ok) 
+            db.saveDoc(userId,stat, function(er, ok)
             {
                 if (er)
                 {
@@ -75,7 +75,7 @@ exports.updateStat=function(userId,run,points,socket,userDisplayName)
 }
 exports.getStandings=function(callback)
 {
-    db.view('statistic','standings',{descending:true,limit:10}, function(er, doc) 
+    db.view('statistic','standings',{descending:true,limit:10}, function(er, doc)
     {
         if (er)
         {
@@ -92,7 +92,7 @@ exports.getStandings=function(callback)
 }
 exports.getPosition=function(userId,callback)
 {
-    db.view('statistic','positions',{key:userId}, function(er, doc) 
+    db.view('statistic','positions',{key:userId}, function(er, doc)
     {
         if (er)
         {
