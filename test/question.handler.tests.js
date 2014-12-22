@@ -1,0 +1,25 @@
+var statModule=require('../qlobal.statistic').create(),
+    questionHandler=require('../question.handler').create(statModule);
+exports.testIsNotCorrect=function(assert)
+{
+	assert.equal(false,questionHandler.isCorrect('Test'));
+}
+exports.testGetNext=function(assert)
+{
+	questionHandler.getNext(function(question)
+	{
+		assert.isNotNull(question);
+		questionHandler.getCurrent(function(currentQuestion)
+		{
+			assert.isNotNull(currentQuestion);
+			assert.deepEqual(currentQuestion,question);
+		});
+	});
+}
+exports.testGetCurrentIfNull=function(assert)
+{
+	questionHandler.getCurrent(function(currentQuestion)
+	{
+		assert.isNotNull(currentQuestion);
+	});
+}

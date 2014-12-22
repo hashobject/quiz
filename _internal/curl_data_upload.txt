@@ -1,0 +1,1 @@
+curl -H 'Content-Type: application/json' -X POST -d @json4.json http://podviaznikov.cloudant.com/quizzer/_bulk_docs 

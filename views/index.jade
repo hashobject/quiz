@@ -1,0 +1,46 @@
+!!! 5
+html(lang="ru")
+  head
+    title=pageTitle
+    meta(name='description',content=appDescription)
+    meta(name='keywords',content=appKeywords)
+    meta(name='google-site-verification',content='dob0qC5x87ceeGqXASwRFG9s13i6fVsVcB_Vt_ZfAFU')
+    meta(name='yandex-verification', content='4fb24be0ac43040d')
+    link(rel='shortcut icon',href='images/favicon.ico')
+    link(rel='stylesheet',media='screen',href='css/quizz.css',type='text/css')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='http://www.google.com/jsapi')
+    :javascript
+      | google.load('friendconnect', '0.8');
+    script(src='js/quizz.client.js')
+    :javascript
+      | google.friendconnect.container.setParentUrl('/');
+      | google.friendconnect.container.initOpenSocialApi({
+      |   site: '14499109920517759434',
+      |   onload:function(securityToken){ initAllData();}});
+  body
+    header#top_header
+      div#gfc-button
+      p#user-info
+    aside.info_panel#status
+      p#label_for_person у Вас:
+      p#amount_of_points 0
+      p#amount_of_points_label очков
+      p#user_total_position.statistical_info Рейтинг - 
+        span 0
+      p#user_total_amount_of_answers.statistical_info Правильных ответов - 
+        span 0
+      p#user_longest_seria.statistical_info Лучшая серия - 
+        span 0
+    section#content
+    aside.info_panel#scores
+      p#info_panel_header Лидеры
+      div#results
+      div#info_tabs
+        div#top_ten_leaders.dot.selected
+        div#online_users.dot.unselected
+    div#centered_wrapper
+    input#user_input(placeholder='Ваш ответ')
+    div#timer 60
+    footer#footer_border
